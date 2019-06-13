@@ -1,0 +1,251 @@
+$texto: #111111;
+$principal: #008692;
+$secundario: #F00C00;
+
+html{
+    font-size: 15px;
+}
+body{
+    font-family: 'Open Sans', sans-serif;
+    color: $texto;
+}
+.index-login{
+    background: url("../images/fondo-encabezado.jpg") no-repeat center top;
+    color: #fff;
+    background-size: cover;
+    background-attachment: fixed !important;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.encabezado{
+    background: $principal;
+    color: #fff;
+    padding: .5rem 0;
+    transition: all .5s ease;
+    height: 5rem;
+}
+.encabezado.fondo-menu{
+    background: #064e4e;
+    padding: 1rem 0;
+}
+.encabezado .container{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+//-----------------------------------
+//
+//-----------------------------------
+
+#menu-principal{
+    height: auto;
+    display: block;
+    flex: 0 1 auto;
+    margin-left: auto;
+    order: 1;
+}
+#menu-principal ul{
+    display: flex;
+    padding: 0;
+    list-style: none;
+    margin: 0 0 0 0;
+}
+#menu-principal ul li{
+    transition: all 1s ease;
+}
+#menu-principal ul li:hover{
+    transform: rotateY(360deg);
+    transform-style: preserve-3d;
+}
+#menu-principal ul a{
+    display: block;
+    padding: .8rem 0;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    border-top: 1px solid #8c8888;
+    text-decoration: none;
+    font-size: 1rem;
+}
+#menu-principal ul li a{
+    padding: .3rem;
+    text-transform: capitalize;
+    margin: 0 .5rem;
+    border-top: 0px;
+    border-bottom: 4px solid transparent;
+    transition: all 1s ease;
+    font-size: 1.1rem;
+}
+#menu-principal ul a:hover,
+#menu-principal ul li.active a{
+    color: $secundario;
+    border-bottom: 4px solid;
+    
+}
+.logo{
+    display: flex;
+}
+.logo img{
+    margin:-88px 0px -50px 0px;
+    width: 230px;
+    height: 230px;
+    animation: animacion-1 2s ease-in-out  infinite;
+}
+
+.prentacionlogin{
+    margin-top: 9rem;
+}
+.prentacionlogin.container{
+    margin-top: 2rem;
+}
+
+.seccionlogin2{
+    background: #fff;
+    margin-top: 5rem;
+    border: 5px solid $principal;
+    border-radius: 15px;
+    padding: 10px;
+    color: $texto;
+}
+.logo-form{
+    margin:-35px 0px -20px 0px;
+}
+.logo-form img{
+    transition: all 1s ease;
+}
+.logo-form:hover img{
+    transform: rotateY(360deg);
+    transform-style: preserve-3d;
+}
+.formulario-login{
+    margin-bottom: 2rem;
+    color: $principal;
+}
+.formulario-login .form-group .form-control{
+    border: 2px solid $principal;
+    border-radius: 15px;
+    padding: 5px;
+}
+.formulario-login .form-group label{
+    font-size: 1.3rem;
+}
+.formulario-login .btn-primary{
+    width: 110px;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    border-color: $principal;
+    background: $principal;
+}
+.formulario-login .btn-primary:hover{
+    background: $secundario;
+    border-color: $secundario;
+}
+.seccionlogin1{
+    margin-top: 9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem;
+}
+.iconologin{
+    height: 90px;
+    width: 90px;
+    margin-bottom: 2rem;
+    animation: animacion-2 3s ease-in-out  infinite;
+}
+@keyframes animacion-1{
+    from{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(6px);
+    }
+    to{
+        transform: translateY(0);
+    }
+    
+}
+@keyframes animacion-2{
+    from{
+        transform: translateX(0);
+    }
+    50%{
+        transform: translateX(30px);
+    }
+    to{
+        transform: translateX(0);
+    }
+    
+}
+//-------------------------------------------
+//Seccion Pie de Pagina
+//-------------------------------------------
+.piedepagina{
+    background: $texto;
+    color: #fff;
+    text-align: center;
+    font-size: .9rem;
+}
+.piedepagina .redes-sociales{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.piedepagina .redes-sociales a{
+    color: #fff;
+    font-size: 2rem;
+    margin: 0 .5rem;
+    opacity: .7;
+    transition: all .5s ease;
+}
+.piedepagina .redes-sociales a:hover{
+    opacity: 1;
+}
+
+//-------------------------------------------
+//content-index
+//-------------------------------------------
+.content-index{
+    margin-top: 7rem;
+    color: #fff;
+}
+.content-index .container h3 span{
+    color: $principal;
+}
+.content-index .container .row{
+    margin-top: 5rem;
+}
+.content-index ul li{
+    list-style: none;
+}
+.menu-icon{
+    height: 6rem;
+    width: 6rem;
+}
+.menu-icon-center{
+    margin-top: 3rem;
+    height: 21rem;
+    width: 21rem;
+}
+//-------------------------------------------
+//Reserva
+//-------------------------------------------
+.reserva{
+    background: url("../images/fondo-encabezado.jpg") no-repeat center top;
+    color: #fff;
+    background-size: cover;
+    background-attachment: fixed !important;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+}
+.table{
+    height: 110px;
+}
