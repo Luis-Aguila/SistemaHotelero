@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author boy-l
  */
+//Se asigna un nombre al servlet y la tipificación de la url para su llamado
 @WebServlet(name = "Habitacion_sv", urlPatterns = {"/Habitacion_sv"})
 public class Habitacion_sv extends HttpServlet {
 
@@ -36,8 +37,9 @@ public class Habitacion_sv extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
+            //Se crea un objeto de la clase TipoHabitacion para su trabajo
             beans.Habitacion h = new beans.Habitacion();
+            //Si se presiona el boton de nombre btnhabitacion, se inserta una habitación
             if(request.getParameter("btnhabitacion") != null){
                 int numero = Integer.parseInt(request.getParameter("numerohabitacion").toString());
                 int precio = Integer.parseInt(request.getParameter("preciohabitacion").toString());
@@ -69,23 +71,24 @@ public class Habitacion_sv extends HttpServlet {
                     
                  }
                 
-                
+                //Se envian los datos capturados a la clase habitación
                h.setNumerohabitacion(numero);
                h.setPreciohabitacion(precio);
                h.setIdtipohabitacion(idtipohabitacion);
                h.setIdtipocama(idtipocama);
                h.setIdestadohabitacion(estadohabitacion);
-                
+                //Se insertan los datos a la base de datos
                 h.insert();
-                
+                //Se redirecciona a la pagina de habitaciones
                 response.sendRedirect("index.jsp?pag=/habitaciones");
+                //Si se presiona el boton de nombre btnborrarhabitacion, se elimina una habitación
             }if(request.getParameter("btnborrarhabitacion") != null){
                 int numerohabitacion = Integer.parseInt(request.getParameter("numerohabitacion").toString());
                 h.setNumerohabitacion(numerohabitacion);
                 h.delete();
-                
+                //Se redirecciona a la pagina de habitaciones
                 response.sendRedirect("index.jsp?pag=/habitaciones");
-                
+                //Si se presiona el boton de nombre btnasignarestado, se le asigna un estado a la habitación
             }if(request.getParameter("btnasignarestado") != null){
                 int numerohabitacion = Integer.parseInt(request.getParameter("numerohabitacion").toString());
                 int estadohabitacion = Integer.parseInt(request.getParameter("estadohabitacion").toString());
@@ -99,7 +102,7 @@ public class Habitacion_sv extends HttpServlet {
                 }else if(estadohabitacion == 1){
                     estadohabitacion = 2;
                 }
-                
+                //se envian los datos a la clase habitación
                 h.setNumerohabitacion(numerohabitacion);
                 h.setIdestadohabitacion(estadohabitacion);
                 h.estadoreservado();

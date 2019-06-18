@@ -18,6 +18,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author boy-l
  */
+//Se asigna un nombre al servlet y la tipificación de la url para su llamado
 @WebServlet(name = "reserva_sv", urlPatterns = {"/reserva_sv"})
 public class reserva_sv extends HttpServlet {
 
@@ -35,14 +36,14 @@ public class reserva_sv extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             HttpSession sesion = request.getSession();
-            
+            //Se crean los objetos de la clase Habitacion, Reserva y Reserva_has_Habitacion para su trabajo.
             beans.Habitacion h = new beans.Habitacion();
             beans.Reserva r = new beans.Reserva();
             beans.Reserva_has_Habitacion rh = new beans.Reserva_has_Habitacion();
-            
+            //Si se presiona el boton de nombre btnbcr, se procede a buscar el elemento por id
             if(request.getParameter("btnbcr") != null){
                 int idcliente = Integer.parseInt(request.getParameter("buscarclientereserva").toString());
-                
+                //Si se presiona el boton de nombre btnasignarestado, se asigna un estado a la habitación
             }if(request.getParameter("btnasignarestado") != null){
                 int numerohabitacion = Integer.parseInt(request.getParameter("numerohabitacion").toString());
                 int estadohabitacion = Integer.parseInt(request.getParameter("estadohabitacion").toString());
@@ -62,6 +63,7 @@ public class reserva_sv extends HttpServlet {
                 h.estadoreservado();
                 
                 response.sendRedirect("index.jsp?pag=/reservas");
+                //Si se presiona el boton de nombre btnreserva, se genera una nueva reserva
             }if(request.getParameter("btnreserva") != null){
                 
                 String[] fdias = request.getParameterValues("fdia");
@@ -128,7 +130,7 @@ public class reserva_sv extends HttpServlet {
                 
                 String freserva = fdia + " / " + fmes + " / " + fanio;
                 String frreserva = frdia + " / " + frmes + " / " + franio;
-                
+                //inserción de datos a la clase
                 r.setFechareserva(freserva);
                 r.setFrecepcionreserva(frreserva);
                 r.setDiasreserva(dias);
@@ -136,8 +138,9 @@ public class reserva_sv extends HttpServlet {
                 r.setEstadoreserva(idestado);
                 r.setRutcliente(cliente);
                 r.setRutusuario(usuario);
-                
+                //Insercion de datos a la base de datos
                 r.insert();
+                //redirección a reserva
                 response.sendRedirect("index.jsp?pag=/reservas");
             }
             

@@ -16,7 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 /**
  *
  * @author boy-l
+ * Se asigna un nombre al servlet y la tipificación de la url para su llamado
  */
+//Se asigna un nombre al servlet y la tipificación de la url para su llamado
 @WebServlet(name = "TipoHabitacion_sv", urlPatterns = {"/TipoHabitacion_sv"})
 public class TipoHabitacion_sv extends HttpServlet {
 
@@ -33,23 +35,25 @@ public class TipoHabitacion_sv extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+            /* TODO output your page here. You may use following sample code. 
+            */
             
-            
+            //Se crea un objeto de la clase TipoHabitacion para su trabajo
             beans.TipoHabitacion th = new beans.TipoHabitacion();
+            //Si se presiona el boton de nombre btntipohabitacion, se inserta el nombre del tipo
             if(request.getParameter("btntipohabitacion") != null){
                 String nombre = request.getParameter("nombretipohabitacion").toString();
                 
                 
                 th.setNombretipohabitacion(nombre);
                 th.insert();
-                
+                //si se presiona el bon de nombre btnborrartipohabitacion, elimina la habitación con la id correspondiente
             }if(request.getParameter("btnborrartipohabitacion") != null){
                 int id = Integer.parseInt(request.getParameter("idtipo").toString());
                 th.setIdtipohabitacion(id);
                 th.delete();
             }
-            
+            //Una vez realizada la transacción, se redirecciona a la pagina de habitaciones
             response.sendRedirect("index.jsp?pag=/habitaciones");
         }
     }

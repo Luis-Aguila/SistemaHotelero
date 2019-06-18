@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author boy-l
  */
+//Se asigna un nombre al servlet y la tipificación de la url para su llamado
 @WebServlet(name = "ReservahazHabitacion_sv", urlPatterns = {"/ReservahazHabitacion_sv"})
 public class ReservahazHabitacion_sv extends HttpServlet {
 

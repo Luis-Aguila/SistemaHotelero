@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author boy-l
  */
+//Se asigna un nombre al servlet y la tipificación de la url para su llamado
 @WebServlet(name = "TipoCama_sv", urlPatterns = {"/TipoCama_sv"})
 public class TipoCama_sv extends HttpServlet {
 
@@ -34,14 +35,15 @@ public class TipoCama_sv extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
+            //Se crea un objeto de la clase TipoHabitacion para su trabajo
             beans.TipoCama tc = new beans.TipoCama();
+            //Si se presiona el boton de nombre btntipocama, se inserta el nombre del tipo
             if(request.getParameter("btntipocama") != null){
                 String nombre = request.getParameter("nombretipocama").toString();
                 
                 tc.setNombretipocama(nombre);
                 tc.insert();
-                
+                //si se presiona el bon de nombre btnborrartipocama, elimina la habitación con la id correspondiente
             }if(request.getParameter("btnborrartipocama") != null){
                 int id = Integer.parseInt(request.getParameter("idtipo").toString());
                 
@@ -50,7 +52,7 @@ public class TipoCama_sv extends HttpServlet {
                 
             }
             
-            
+            //Una vez realizada la transacción, se redirecciona a la pagina de habitaciones
             response.sendRedirect("index.jsp?pag=/habitaciones");
         }
     }
